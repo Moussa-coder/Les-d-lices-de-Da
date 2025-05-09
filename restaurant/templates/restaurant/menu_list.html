@@ -1,0 +1,13 @@
+{% extends 'restaurant/base.html' %}
+
+{% block content %}
+<h2>Liste des Menus</h2>
+<a href="{% url 'menu_create' %}" class="btn btn-primary mb-3">Ajouter un menu</a>
+<ul>
+    {% for menu in menus %}
+        <li>{{ menu.name }} - <a href="{% url 'menu_update' menu.id %}">Modifier</a> - <a href="{% url 'menu_delete' menu.id %}">Supprimer</a></li>
+    {% empty %}
+        <li>Aucun menu disponible.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

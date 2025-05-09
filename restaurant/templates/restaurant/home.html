@@ -1,0 +1,14 @@
+{% extends 'restaurant/base.html' %}
+
+{% block content %}
+<h1>Bienvenue sur Restaurant Pro</h1>
+<p>Découvrez nos menus et plats délicieux !</p>
+<ul>
+    {% for menu in menus %}
+        <li>{{ menu.name }} - <a href="/menus/{{ menu.id }}/update/">Modifier</a> - <a href="/menus/{{ menu.id }}/delete/">Supprimer</a></li>
+    {% empty %}
+        <li>Aucun menu disponible.</li>
+    {% endfor %}
+</ul>
+<a href="/menus/create/" class="btn btn-primary">Ajouter un menu</a>
+{% endblock %}

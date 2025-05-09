@@ -1,0 +1,13 @@
+{% extends 'restaurant/base.html' %}
+
+{% block content %}
+<h2>Liste des Plats</h2>
+<a href="{% url 'plats_create' %}" class="btn btn-primary mb-3">Ajouter un plat</a>
+<ul>
+    {% for plat in plats %}
+        <li>{{ plat.name }} - {{ plat.price }}€ - <a href="{% url 'plats_update' plat.id %}">Modifier</a> - <a href="{% url 'plats_delete' plat.id %}">Supprimer</a></li>
+    {% empty %}
+        <li>Aucun plat disponible.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
